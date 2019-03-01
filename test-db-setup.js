@@ -1,13 +1,11 @@
 import mongoose from 'mongoose'
 import cuid from 'cuid'
 import _ from 'lodash'
+import config from './src/config'
 
 const models = {}
 
-const url =
-  process.env.MONGODB_URI ||
-  process.env.DB_URL ||
-  'mongodb://localhost:27017/faceshell-api'
+const url = process.env.MONGODB_URI || process.env.DB_URL || config.dbUrl
 
 global.newId = () => {
   return mongoose.Types.ObjectId()
